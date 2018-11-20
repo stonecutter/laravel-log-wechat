@@ -36,3 +36,7 @@ php artisan wechat:hello
 ```
 Log::error('你好，之华', ['city' => 'Shanghai', 'sender' => '尹川']);
 ```
+
+效果：
+
+![微信收到消息](https://user-images.githubusercontent.com/4971414/48781358-d3023200-ed16-11e8-80e8-abe942e9edf4.png)

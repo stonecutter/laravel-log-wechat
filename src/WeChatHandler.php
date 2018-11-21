@@ -56,7 +56,7 @@ class WeChatHandler extends AbstractProcessingHandler
             $res = $this->http->request('GET', $this->url, ['query' => [
                 'sendkey' => $this->sendKey,
                 'text' => mb_substr($record['message'], 0, 80), // 标题，必填。不超过80个字
-                'desp' => str_replace("\n", "\n\n", json_encode($record['context'], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE)), // 长文本内容，选填。支持Markdown，换行需要一个空行
+                'desp' => str_replace("\n", "\n\n", json_encode(['time' => $record['datetime']->format(DATE_ATOM)] + $record['context'], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE)), // 长文本内容，选填。支持Markdown，换行需要一个空行
             ]]);
             file_put_contents('php://stdout', json_encode(json_decode((string) $res->getBody(), true), JSON_UNESCAPED_UNICODE) . "\n", FILE_APPEND);
         } catch (\Exception $exception) {

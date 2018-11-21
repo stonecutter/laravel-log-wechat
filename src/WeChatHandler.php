@@ -52,6 +52,9 @@ class WeChatHandler extends AbstractProcessingHandler
      */
     protected function write(array $record)
     {
+        if (empty($this->url) || empty($this->sendKey)) {
+            return false;
+        }
         try {
             $res = $this->http->request('GET', $this->url, ['query' => [
                 'sendkey' => $this->sendKey,

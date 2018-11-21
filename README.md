@@ -10,7 +10,7 @@
 
 登录 PushBear，创建 消息通道，获得二维码（多人扫码收消息）和秘钥。
 
-![PushBear 消息通道管理](https://user-images.githubusercontent.com/4971414/48777307-371ff880-ed0d-11e8-8a96-c641d9ea7b2a.png)
+![PushBear 消息通道管理](https://user-images.githubusercontent.com/4971414/48829486-45bdec80-edad-11e8-95e6-36a1b1196a51.png)
 
 把秘钥放在 Laravel 环境变量里，比如：
 

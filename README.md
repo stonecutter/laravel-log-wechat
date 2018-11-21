@@ -1,4 +1,4 @@
-# Laravel Log Wechat
+# Laravel Log WeChat
 
 服务器错误日志发送到 多人微信。
 

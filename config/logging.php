@@ -41,13 +41,13 @@ return [
         'single' => [
             'driver' => 'single',
             'path' => storage_path('logs/laravel.log'),
-            'level' => 'debug',
+            'level' => env('LOG_LEVEL', 'debug'),
         ],
 
         'daily' => [
             'driver' => 'daily',
             'path' => storage_path('logs/laravel.log'),
-            'level' => 'debug',
+            'level' => env('LOG_LEVEL', 'debug'),
             'days' => 7,
         ],
 
@@ -56,7 +56,7 @@ return [
             'url' => env('LOG_SLACK_WEBHOOK_URL'),
             'username' => 'Laravel Log',
             'emoji' => ':boom:',
-            'level' => 'critical',
+            'level' => env('LOG_LEVEL_SLACK', 'critical'),
         ],
 
         'stderr' => [
@@ -64,17 +64,18 @@ return [
             'handler' => StreamHandler::class,
             'with' => [
                 'stream' => 'php://stderr',
+                'level' => env('LOG_LEVEL', 'debug'),
             ],
         ],
 
         'syslog' => [
             'driver' => 'syslog',
-            'level' => 'debug',
+            'level' => env('LOG_LEVEL', 'debug'),
         ],
 
         'errorlog' => [
             'driver' => 'errorlog',
-            'level' => 'debug',
+            'level' => env('LOG_LEVEL', 'debug'),
         ],
 
         'wechat' => [
@@ -83,8 +84,8 @@ return [
             'handler_with' => [
                 'url' => 'https://pushbear.ftqq.com/sub',
                 'sendKey' => env('LOG_WECHAT_PUSHBEAR_SEND_KEY'),
+                'level' => env('LOG_LEVEL_WECHAT', 'error'),
             ],
-            'level' => 'critical',
         ],
     ],
 

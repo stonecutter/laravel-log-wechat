@@ -61,7 +61,7 @@ class WeChatHandler extends AbstractProcessingHandler
             file_put_contents('php://stdout', json_encode(json_decode((string) $res->getBody(), true), JSON_UNESCAPED_UNICODE) . "\n", FILE_APPEND);
         } catch (\Exception $exception) {
             // do nothing
-            file_put_contents('php://stdout', $exception->getMessage() . "\n", FILE_APPEND);
+            file_put_contents('php://stderr', $exception->getMessage() . "\n", FILE_APPEND);
         }
     }
 }
